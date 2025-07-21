@@ -237,6 +237,8 @@ export async function POST(request: Request) {
     if (error instanceof ChatSDKError) {
       return error.toResponse();
     }
+    console.error('An unexpected error occurred:', error);
+    return new Response('An unexpected error occurred.', { status: 500 });
   }
 }
 
